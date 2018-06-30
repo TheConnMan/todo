@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+- '8'
+script:
+- npm run build
+deploy:
+  skip_cleanup: true
+  provider: s3
+  access_key_id: AKIAIHUNZRQAJHU2JHZQ
+  secret_access_key:
+    secure: TjE+a6RHl2eIsenvC0zg8hE72VxsfRz+9K/Ang/39gmJsIRmR74xx+hTNXp3Vg6jvHsgjrL5wP+NWBBZExXpwAHn/koZftxr+rThLW44OZZesbyATQbU96F11U9nKPr29JA31OMDSzOYNv1knk8jBk/+IpczwQqDIJLqqmpQUapp3X6eQRBN8KTtldKt+1YCqBNDaHX/MrLLoslbwCInCKVpqMZGaOlDXY6zVSKKFlB2OsyoaDNyTeX6BvyHRjxGQPjflXAe5ULmWODq4dyzknWHmPfahN7HlBHdP669NUHUSE1S7E8DhEVMkar0nmYSgdDA4HzK/8ETHlEi6tGy0AFkExkxXlXDn5mn6lM+zw1BYR4FqlwNSfKl4r5AzihuM1fYMTNxFueStAmxs5VLjzZQiQ/1vgKJfR/MQVOq8t2pF6KsXrH335reCl/P/584CYmxNH0Hs2mDOEy8Xqt1FGfSOZ1GmJG1L4lidcbnqnreN4EMLqn7fluoRIgz61SPrwuXPd5zCPDdsHAN3NVrLYqoXdiUb35llCrVnaLcgvjg4n1sIg+fsyAFBVEmHeoHO75/lppkBP01cSp3UqXO2kT6HinXdZc28ObsEMIHmfRaEfXzQelaGNE8KMYj9/QwBjZBj4Kg4JRi8JQiNsepulwPKcctBZ8iq+zhHfIcUWk=
+  bucket: theconnman-todo
+  local-dir: dist
+  acl: public_read
+  on:
+    branch: master
+    repo: TheConnMan/todo
