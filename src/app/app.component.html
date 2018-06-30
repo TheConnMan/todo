@@ -1,8 +1,27 @@
 <div class="ui segment">
-  <h1 class="ui header">
-    <i class="list icon"></i>
-    <div class="content">
-      To Dos
+  <div class="ui relaxed divided list">
+    <div class="item" *ngFor="let item of todoService.getItems() | sortingItems" [ngClass]="item.completed ? 'completed' : ''">
+      <div class="right floated content">
+        <div class="ui positive icon button" (click)="toggleItem(item)">
+          <i class="check icon" *ngIf="!item.completed"></i>
+          <i class="undo icon" *ngIf="item.completed"></i>
+        </div>
+        <div class="ui negative icon button" (click)="deleteItem(item)">
+          <i class="remove icon"></i>
+        </div>
+      </div>
+      <div class="content">
+        <h2 class="header">{{ item.text }}</h2>
+        <div class="description">Created {{ item.created | amTimeAgo }}</div>
+      </div>
     </div>
-  </h1>
+    <div class="item">
+      <div class="content">
+        <div class="ui left icon fluid input">
+          <input type="text" autofocus placeholder="Add new item..." [(ngModel)]="text" (keyup.enter)="createItem()">
+          <i class="check icon"></i>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

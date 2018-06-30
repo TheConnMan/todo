@@ -1,0 +1,7 @@
+.completed {
+  opacity: 0.3;
+}
+
+.completed .header {
+  text-decoration: line-through;
+}
