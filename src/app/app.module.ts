@@ -7,10 +7,12 @@ import { MomentModule } from 'angular2-moment';
 
 import { SortingItemsPipe } from './directives/sorting-items.pipe';
 import { ToDoService } from './shared/todo.service';
+import { LinkablePipe } from './directives/linkable.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LinkablePipe,
     SortingItemsPipe
   ],
   imports: [
